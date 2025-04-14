@@ -2,7 +2,7 @@ package pl.javastart.bikerent;
 
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.Optional;
 
@@ -14,17 +14,26 @@ public class BikeRepository {
         this.entityManager = entityManager;
     }
 
-    @Transactional
     public void save(Bike bike){
-        entityManager.persist(bike);
+            entityManager.persist(bike);
     }
 
     public Optional<Bike> findById(Long id){
         return Optional.ofNullable(entityManager.find(Bike.class, id));
     }
 
-    @Transactional
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         findById(id).ifPresent(entityManager::remove);
     }
+        //We pass a detached entity object; the merge method
+        // links the entity with the persistence context,
+        // meaning it returns a managed instance.
+        // This managed object can then be removed.//
+    /* @Transactional
+    public void delete(Bike bike){
+        Bike mergedEntity = entityManager.merge(bike);
+        entityManager.remove(bike);
+    }
+    */
+
 }
