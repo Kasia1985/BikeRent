@@ -70,8 +70,8 @@ bikeService.returnBike(1L);
 ---
 
 ### ⚠ Notes
--Detached entities must be merged before removal to attach them to the persistence context.
--Example logic is included in the main method but commented for demonstration.
+- Detached entities must be merged before removal to attach them to the persistence context.
+- Example logic is included in the main method but commented for demonstration.
 
 ---
 
@@ -80,10 +80,3 @@ bikeService.returnBike(1L);
 Created as part of the **JavaStart Spring Boot** course.
 
 
-Example logic is shown but commented in DemoJpaApplication for clarity.
-
-How to Run
-Clone the repo
-Open the project in your favorite IDE
-Run DemoJpaApplication
-Check console output for sample interactions
