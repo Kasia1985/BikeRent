@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class DemoJpaApplication {
+public class BikerentApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(DemoJpaApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(BikerentApplication.class, args);
         NewBikeDTO bike1 = new NewBikeDTO(1L, "Kross ESker 4.0, 29 inch male", "KRS12345", 30, 100);
         BikeService bikeService = context.getBean(BikeService.class);
         bikeService.add(bike1);

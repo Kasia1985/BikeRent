@@ -1,14 +1,11 @@
 package pl.javastart.bikerent;
 
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+interface BikeRepository extends CrudRepository<Bike,Long> {
 
-@Repository
-public class BikeRepository {
-    private final EntityManager entityManager;
+    /*private final EntityManager entityManager;
 
     public BikeRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -25,6 +22,9 @@ public class BikeRepository {
     public void deleteById(Long id) {
         findById(id).ifPresent(entityManager::remove);
     }
+
+    */
+
         //We pass a detached entity object; the merge method
         // links the entity with the persistence context,
         // meaning it returns a managed instance.
