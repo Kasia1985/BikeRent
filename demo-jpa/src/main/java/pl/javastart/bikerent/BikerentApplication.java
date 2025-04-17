@@ -9,13 +9,23 @@ public class BikerentApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(BikerentApplication.class, args);
-        NewBikeDTO bike1 = new NewBikeDTO(1L, "Kross ESker 4.0, 29 inch male", "KRS12345", 30, 100);
+        BikeDTO bike1 = new BikeDTO(1L, "Kross ESker 4.0, 29 inch male", "KRS12345", 30, 100);
+        BikeDTO bike2 = new BikeDTO(2L, "Merida Kalahari 2020, 29 inch female", "MFR4767", 25, 80);
+        BikeDTO bike3 = new BikeDTO(3L, "Trek XSPeed 2, 29 inch male", "MKSFBGF123", 40, 150);
+        BikeDTO bike4 = new BikeDTO(4L, "Superior XR Super, 26 inch female", "POZ123", 30, 100);
         BikeService bikeService = context.getBean(BikeService.class);
         bikeService.add(bike1);
-        double payment = bikeService.rentForHours(1L, 5, "asc1234");
+        bikeService.add(bike2);
+        bikeService.add(bike3);
+        bikeService.add(bike4);
+        double payment = bikeService.rentForDay("MKSFBGF123","ABC1234");
         System.out.println("to pay for rent: " + payment);
-        bikeService.returnBike(1L);
 
+        int borrowedBikes = bikeService.countBorrowedBikes();
+        System.out.println("amount of borrowed bikes: "+ borrowedBikes);
+
+        System.out.println("Available bikes (by increasing price):");
+        bikeService.findAllAvailableBikes().forEach(System.out::println);
 
 
 

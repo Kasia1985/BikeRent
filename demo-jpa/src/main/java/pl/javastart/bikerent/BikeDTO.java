@@ -1,13 +1,13 @@
 package pl.javastart.bikerent;
 
-public class NewBikeDTO {
+public class BikeDTO {
     private Long id;
     private String model;
     private String serialNo;
     private double hourPrice;
     private double dayPrice;
 
-    public NewBikeDTO(Long id, String model, String serialNo, double hourPrice, double dayPrice) {
+    public BikeDTO(Long id, String model, String serialNo, double hourPrice, double dayPrice) {
         this.id = id;
         this.model = model;
         this.serialNo = serialNo;
@@ -53,5 +53,16 @@ public class NewBikeDTO {
 
     public void setDayPrice(double dayPrice) {
         this.dayPrice = dayPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "BikeDTO{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", serialNo='" + serialNo + '\'' +
+                ", hourPrice=" + hourPrice +
+                ", dayPrice=" + dayPrice +
+                '}';
     }
 }
